@@ -17,7 +17,7 @@ INSTALLED_APPS = [
     ...
     'forms_fieldset',
 ]
-````
+```
 
 ``load template``
 
