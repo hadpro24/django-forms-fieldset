@@ -109,7 +109,7 @@ def home(request):
 	context = {
 		'form': form,
 		'fieldsets': form.fieldsets,
-		'inline_formset': InlineForm()
+		'inline_form': InlineForm()
 	}
 	return render(request, 'home.html', context)
 ```
@@ -128,7 +128,7 @@ def home(request):
 
 	<form>
 		{% fieldset form fieldsets '#42945c' %}
-		{% fieldset inline_formset '#42945c' "Note des eleves" %}
+		{% inline_fieldset inline_form '#42945c' "Note des eleves" %}
 	</form>
 </body>
 </html>
