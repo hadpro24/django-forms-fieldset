@@ -19,7 +19,7 @@ def fieldset(form, fieldsets, color='#79AEC8'):
 	return render_to_string('forms_fieldset/fieldset.html', context)
 
 @register.simple_tag
-def inline_formset(inline_formset, color='#79AEC8', label='Inline Form'):
+def inline_fieldset(inline_formset, color='#79AEC8', label='Inline Form'):
 	context = {
 		'inline_formset': inline_formset,
 		'color': color,
