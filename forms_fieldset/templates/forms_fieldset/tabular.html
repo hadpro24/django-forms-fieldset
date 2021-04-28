@@ -1,0 +1,74 @@
+<div class="js-inline-admin-formset inline-group" id="{{ inline_formset.prefix }}-group"
+     data-inline-type="tabular"
+     data-inline-formset="{{ inline_formset.inline_formset_data }}">
+  <div class="tabular inline-related">
+    {{ inline_formset.management_form }}
+    <fieldset class="module {{ inline_formset.classes }}">
+       <h2 style="background-color: {{ color  }}">{{ label }}</h2>
+       {{ inline_formset.non_form_errors }}
+       <table>
+         <thead>
+              <tr>
+                {% for field in inline_formset.0 %}
+                   <th class="column-{{ field.name }}{% if field.required %} required{% endif %}">
+                    {% if not field.is_hidden %}
+                      {{ field.label_tag }}
+                    {% endif %}
+                   </th>
+                {% endfor %}
+             </tr>
+          </thead>
+
+         <tbody>
+                {% for form in inline_formset %}
+                <tr class="form-row">
+                    {% for field in form %}
+                        {% if field.is_readonly %}
+                            <p>{{ field.contents }}</p>
+                        {% else %}
+                          <td>
+                            {{ field.errors }}
+                            {{ field }}
+                          </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                <tr class="add-row" id="link-add-row"><td colspan="{{ inline_formset.extra|add:'1' }}">
+                  <a href="#" id="add-info">Ajout supplémentaire</a></td></tr>
+         </tbody>
+       </table>
+    </fieldset>
+</div>
+<script type="text/javascript">
+  document.querySelector('#add-info').onclick = function(e){
+    e.preventDefault();
+    target = e.target;
+    let next_id = parseInt(target.parentNode.getAttribute('colspan')); //previousSibling;
+    let html = `
+          <tr class="form-row">
+            {% for field in inline_formset.0 %}
+                {% if field.is_readonly %}
+                    <p>{{ field.contents }}</p>
+                {% else %}
+                  <td>
+                    {{ field.errors }}
+                    {{ field }}
+                  </td>
+                {% endif %}
+            {% endfor %}
+          </tr>
+    `.replaceAll('0', next_id);
+    // Internet Explorer, Opera, Chrome, Firefox 8+ and Safari
+    let el = document.querySelector('#link-add-row').previousElementSibling;
+    if (el.insertAdjacentHTML)
+        el.insertAdjacentHTML("beforebegin", html);
+    else {
+        var range = document.createRange();
+        var frag = range.createContextualFragment(html);
+        el.parentNode.insertBefore(frag, el);
+    }
+    target.parentNode.setAttribute('colspan', next_id);
+  }
+</script>
+</div>
