@@ -99,6 +99,10 @@ def home(request):
 	InlineForm = inlineformset_factory(Student, Note, 
 		fields=('subject', 'value',), exclude=('pk',), can_delete=False,
 	)
+	if request.method == 'POST':
+		form = Form(request.POST, request.FILES)
+		formset = InlineForm(request.POST, request.FILES)
+		#save...
 	context = {
 		'form': form,
 		'fieldsets': form.fieldsets,
