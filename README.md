@@ -24,8 +24,11 @@ INSTALLED_APPS = [
 
 ```html
 {% load forms_fieldset static %}
+<link rel="stylesheet" type="text/css" href="{% static 'forms_fieldset/css/main.css' %}">
 
-{% fieldset form fieldsets '#42945c' %}
+<form>
+	{% fieldset form fieldsets '#42945c' %}
+</form>
 ```
 ***Note*** : The first argument of `fieldset` tag is the `form` the second the list
 `fieldsets` where you have defined the positioning of your different elements and 
