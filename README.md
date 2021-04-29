@@ -2,7 +2,7 @@ django-forms-fieldset
 ==============
 Django form fieldset inspire django admin fieldset
 
-Installation ![https://pypi.org/project/django-forms-fieldset/](https://img.shields.io/pypi/v/django-forms-fieldset.svg)
+Installation ![](https://pypi.org/project/django-forms-fieldset)
 -----
 ```sh
 pip install django-forms-fieldset
