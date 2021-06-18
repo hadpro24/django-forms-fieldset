@@ -27,12 +27,10 @@ INSTALLED_APPS = [
 <link rel="stylesheet" type="text/css" href="{% static 'forms_fieldset/css/main.css' %}">
 
 <form>
-	{% fieldset form fieldsets '#42945c' %}
+	{{ form|fieldset:'#42945c' }}
 </form>
 ```
-***Note*** : The first argument of `fieldset` tag is the `form` the second the list
-`fieldsets` where you have defined the positioning of your different elements and 
-the last the color of the title of the fieldset (by default this value is at `#79AEC8`)
+***Note*** : The fieldset filter receives the color of the titles of the form groups, by default this color is used: # 79AEC8)
 
 Complete Guide
 ----------
@@ -108,7 +106,6 @@ def home(request):
 		#save...
 	context = {
 		'form': form,
-		'fieldsets': form.fieldsets,
 		'inline_form': InlineForm()
 	}
 	return render(request, 'home.html', context)
@@ -127,8 +124,8 @@ def home(request):
 	<h1>Student form information</h1>
 
 	<form>
-		{% fieldset form fieldsets '#42945c' %}
-		{% inline_fieldset inline_form '#42945c' "Note des eleves" %}
+		{{ form|fieldset:'#42945c' }}
+		{{ form_inline|inline_fieldset:"#42945c,Note des eleves" }}
 	</form>
 </body>
 </html>
