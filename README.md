@@ -1,8 +1,11 @@
 django-forms-fieldset
 ==============
+![https://github.com/hadpro24/django-forms-fieldset/actions](https://github.com/hadpro24/django-forms-fieldset/actions/workflows/test.yml/badge.svg)
+![](https://img.shields.io/pypi/v/django-forms-fieldset.svg)
+
 Django form fieldset inspire django admin fieldset
 
-Installation ![](https://img.shields.io/pypi/v/django-forms-fieldset.svg)
+Installation
 -----
 ```sh
 pip install django-forms-fieldset
