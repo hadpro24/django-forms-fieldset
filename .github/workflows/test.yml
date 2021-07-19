@@ -1,4 +1,4 @@
-name: Django forms fieldset
+name: Tests Django forms fieldset
 
 on: [push]
 
