@@ -54,7 +54,7 @@ class FieldsetInlineFieldsetTestTags(TestCase):
 
 
 	def test_render_inline_fieldset(self):
-		InlineForm = inlineformset_factory(Student, Note, 
+		InlineForm = inlineformset_factory(Student, Note,
 			fields=('subject', 'value',), exclude=('pk',), can_delete=False,
 		)
 		context = Context({'form': self.form, 'form_inline': InlineForm()})
@@ -95,5 +95,4 @@ class FieldsetInlineFieldsetTestTags(TestCase):
 		## inline
 		self.assertInHTML('<h2 style="background-color: #42945c">Note des eleves</h2>', rendered)
 		self.assertInHTML('<input type="hidden" name="notes-TOTAL_FORMS" value="3" id="id_notes-TOTAL_FORMS">', rendered)
-		self.assertInHTML('<a href="#" id="add-info">Ajout supplémentaire</a>', rendered)
-
+		self.assertInHTML('<a href="#" id="add-info">Add another</a>', rendered)
