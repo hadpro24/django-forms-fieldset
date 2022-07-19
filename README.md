@@ -142,6 +142,12 @@ def home(request):
 1. Fieldset django form
 2. Fieldset (tabular style) inline form
 
+## Release
+	- version 1.0.2 
+		fix #6
+	- version 1.0.1
+		fix #3
+
 ## Credit
 Harouna Diallo
 =======
